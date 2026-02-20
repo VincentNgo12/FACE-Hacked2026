@@ -9,9 +9,6 @@ Because the hackathon problem statement is unknown, the system is designed to be
 
 ---
 
-
----
-
 ## 🧠 **Core Idea**
 
 The robot runs five major subsystems:
