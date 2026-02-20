@@ -1,0 +1,62 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env
+venv/
+.venv/
+
+# --- Logs ---
+*.log
+logs/
+nohup.out
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+
+# --- Editors / IDE ---
+.vscode/
+.idea/
+
+# --- Build Artifacts ---
+build/
+dist/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+
+# --- Binary Outputs ---
+*.o
+*.so
+*.a
+*.out
+*.exe
+
+# --- Vision / Generated Images ---
+vision/python/output/
+vision/cpp/output/
+
+# --- TTS Models ---
+core/tts/models/
+
+# --- Audio / Temporary Files ---
+*.wav
+*.mp3
+*.tmp
+
+# --- IPC Runtime Files ---
+ipc/runtime/
+ipc/*.sock
+
+# --- Camera Dumps ---
+*.jpg
+*.jpeg
+*.png
+*.bmp
+frame_dump/
+
+# --- Pip Local Build ---
+pip-wheel-metadata/
