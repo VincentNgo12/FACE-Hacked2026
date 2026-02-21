@@ -3,8 +3,8 @@ This program was written by Ethan Bui. It receives information about the positio
 human face within a camera frame, and instruct the servos to move to put the 
 face at the centre of the frame.
 '''
-
-import NumPy as np
+from faceram import *
+import numpy as np
 import cv2
 from ethan_servo_gesture import (
     move_to, go_home, search, stop_gesture,
@@ -47,7 +47,7 @@ def update_servo(point: np.array) -> None:
 
     Parameters
     ----------
-    bbox : tuple  Bounding box of the detected face (x, y, width, height).
+    bbox : tuple  Bounding box of the detected face [x, y].
                   Pass None if no face is detected.
     """
     global _prev_face_x, _prev_face_y
@@ -55,12 +55,7 @@ def update_servo(point: np.array) -> None:
     if point is None:
         _prev_face_x = None
         _prev_face_y = None
-        if not is_gesture_running():
-            search()
         return
-
-    if is_gesture_running():
-        stop_gesture()
 
     face_centre_x, face_centre_y = point
 

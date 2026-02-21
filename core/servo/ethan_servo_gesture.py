@@ -225,7 +225,7 @@ def nod(tilt_up: float = 60, tilt_down: float = 120,
 
 # -- Search (combined pan + tilt sweep) -------------------------------------
 
-def search(face_detected_callback=None, blocking: bool = False):
+def search(blocking: bool = False):
     """
     Combined search pattern: scan left-right at three different tilt angles
     to cover the full field of view. If no face is detected after a full
@@ -233,9 +233,6 @@ def search(face_detected_callback=None, blocking: bool = False):
 
     Parameters
     ----------
-    face_detected_callback : callable  Function to call when a face is detected.
-                                       Should return True if a face is found,
-                                       False otherwise.
     blocking               : bool      If True, block until gesture finishes.
     """
     def _search():
@@ -265,12 +262,6 @@ def search(face_detected_callback=None, blocking: bool = False):
                 # Step 3: Sweep pan from PAN_MIN to PAN_MAX at fixed tilt
                 if not move_to(PAN_MAX, tilt_pos, duration=2.0):
                     return
-
-                # Check for face after each sweep
-                if face_detected_callback is not None:
-                    if face_detected_callback():
-                        stop_gesture()
-                        return
 
             print(f"Search attempt {attempt + 1} of {max_attempts} complete, no face detected.")
 
